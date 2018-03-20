@@ -25,6 +25,7 @@ namespace Xamarin.Forms.GoogleMaps.Android
         GoogleMap.IOnMyLocationButtonClickListener
     {
         readonly CameraLogic _cameraLogic;
+        readonly ClusterLogic _clusterLogic = new ClusterLogic();
         readonly UiSettingsLogic _uiSettingsLogic = new UiSettingsLogic();
         readonly BaseLogic<GoogleMap>[] _logics;
 
@@ -39,6 +40,7 @@ namespace Xamarin.Forms.GoogleMaps.Android
                 new PolygonLogic(),
                 new CircleLogic(),
                 new PinLogic(OnMarkerCreating, OnMarkerCreated, OnMarkerDeleting, OnMarkerDeleted),
+                _clusterLogic,
                 new TileLayerLogic(),
                 new GroundOverlayLogic()
             };
